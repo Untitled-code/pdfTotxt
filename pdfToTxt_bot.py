@@ -1,4 +1,4 @@
-#!./venv/bin/python
+#!../imageTotext_bot/venv/bin/python
 import subprocess
 import os
 import time
@@ -20,6 +20,10 @@ def handle(msg):
                                  "\nЗакинь сюди PDF-файл")
         print(msg["text"])
         logging.debug(msg["text"])
+        os.chdir(f'{os.environ.get("HOME")}/scripts3/pdfTotxt')
+        get_home_dir = os.getcwd()
+        print(f'Working dir is changed to home folder {get_home_dir}')
+
 
     if content_type == 'document':
         print(msg)
@@ -36,14 +40,14 @@ def handle(msg):
 
         # let the human know that the file is on its way
         bot.sendMessage(chat_id, "готую файл для відправки ...")
-        file = glob.glob(f"*.docx")
+        file = glob.glob(f"*.txt")
         print(file) #glob returns file in list format :(
         logging.debug(file) #glob returns file in list format :(
         # send the pdf doc
         bot.sendDocument(chat_id=chat_id, document=open(file[0], 'rb'))
 
         bot.sendMessage(chat_id, "Тримай!")
-        os.chdir(f'{os.environ.get("HOME")}/PycharmProjects/pdfTotxt')
+        os.chdir(f'{os.environ.get("HOME")}/scripts3/pdfTotxt')
         get_home_dir = os.getcwd()
         print(f'Working dir is changed to home folder {get_home_dir}')
 
