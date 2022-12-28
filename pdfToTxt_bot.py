@@ -16,8 +16,10 @@ def handle(msg):
     print(content_type, chat_type, chat_id)
     logging.debug(content_type, chat_type, chat_id)
     if content_type == 'text':
-        bot.sendMessage(chat_id, "Привіт! Допомогти перетворити PDF у текстовий файл?"
-                                 "\nЗакинь сюди PDF-файл")
+        bot.sendMessage(chat_id, "Привіт, я бот для розпізновання тексту. Це проект nikcenter.org."
+                                 "\nЗакинь сюди  PDF-файл"
+                                 "\nHi, I'm a bot for converting pdf files into text. This is a nikcenter.org project."
+                                 "\nUpload pdf files here")
         print(msg["text"])
         logging.debug(msg["text"])
         os.chdir(f'{os.environ.get("HOME")}/scripts3/pdfTotxt')
