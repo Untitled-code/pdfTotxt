@@ -76,8 +76,7 @@ def prepareFolder(chat_id, who_sent, file_id, ext):
 #make conversion of txt file to doc file
 
 # replace XXXX.. with your token
-TOKEN = "5594170891:AAG_N8HeA8Yxv1zlpWD445fKTkNUqsbBNMo"
-
+TOKEN = os.environ.get('PDFTOTEXT')
 bot = telepot.Bot(TOKEN)
 MessageLoop(bot, handle).run_as_thread()
 print('Listening ...')
